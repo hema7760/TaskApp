@@ -1,0 +1,19 @@
+.AddTaskClass{
+   border: 2px solid grey;
+   padding: 10px;
+   width: 100%;
+   margin-top: 20px;
+}
+.alignCenter{
+    text-align: center;
+}
+.marginBottom{
+    margin-bottom:5px;
+}
+.errorMessageClass{
+    color: red;
+    font: medium;
+}
+.errorClass{
+    border-color: red;
+}

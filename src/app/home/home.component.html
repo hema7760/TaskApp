@@ -1,0 +1,50 @@
+<div class="row ">
+    <div class="col-6">
+        <table border="2" class="table">
+            <tr><td  class="alignCenter" colspan="2"><b>PERSONAL TASKS</b></td></tr>
+            <tr class="thead-dark">
+                <th scope="col">Sr.No</th>
+                <th scope="col">Task</th>
+            </tr>
+            <tr [hidden]="personalTaskList.length == 0" *ngFor="let task of personalTaskList; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{task.text}}</td>
+            </tr>
+            <tr [hidden]="personalTaskList.length != 0">
+                <td colspan="2">You have completed all you personal tasks </td>    
+            </tr>
+
+        </table>
+        
+        <table border="2" class="table">
+            <tr><td  class="alignCenter" colspan="2"><b>TASKS BY LEADER</b></td></tr>
+            <tr class="thead-dark">
+                <th scope="col">Sr.No</th>
+                <th scope="col">Task</th>
+            </tr>
+            <tr [hidden]="leaderTaskList.length == 0" *ngFor="let task of leaderTaskList; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{task.text}}</td>
+            </tr>
+            <tr [hidden]="leaderTaskList.length != 0">
+                <td colspan="2">You have completed all tasks from leader</td>    
+            </tr>
+        </table>
+    </div>
+    <div class="col-6">
+        <table border="2" class="table">
+            <tr><td class="alignCenter"  colspan="2"><b>TEAM TASKS</b></td></tr>
+            <tr class="thead-dark">
+                <th scope="col">Sr.No</th>
+                <th scope="col">Task</th>
+            </tr>
+            <tr [hidden]="globalTaskList.length == 0" *ngFor="let task of globalTaskList; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{task.text}}</td>
+            </tr>
+            <tr [hidden]="globalTaskList.length != 0">
+                <td colspan="2">You have completed all team tasks.</td>    
+            </tr>
+        </table>
+    </div>
+</div>

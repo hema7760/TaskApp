@@ -1,0 +1,38 @@
+.alignCenter{
+    text-align: center;
+    width:80%;
+    padding-left:5%;
+    float:left;
+}
+.filterSection{
+    border: 2px solid cadetblue;
+    float: left;
+    /* margin-top: 35px; */
+    margin-top: 5px;
+    width: 200px;
+    padding-left: 20px;
+}
+.marginTop{
+    margin-top: -30px;
+}
+.paddingTop{
+    padding-top:10px;
+}
+.filterButton{
+    width: 45%;
+    background-color: cadetblue;
+}
+.marginRight{
+    margin-right: 5px;
+}
+.fade.in{
+    opacity: 1;
+  }
+  .modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  .modal-backdrop.in {
+    opacity: 0.5;
+  }

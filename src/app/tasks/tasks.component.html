@@ -1,0 +1,100 @@
+<div class="paddingTop">
+    
+    <div id="filterBySection">
+        <div>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addTaskModal" (click)="showModal()">Want to Add Task?</button>
+        </div>
+        <div>
+        <form #form (submit)="filterTaskList($event,form)"  class="filterSection">
+            <div class="paddingTop"><b>FILTER BY:</b></div>
+            <div class="form-group">
+                <div class="paddingTop"><b>Category: </b></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filterCategory" id="personalCategory"  value="personal" checked>
+                    <label class="form-check-label" for="personalCategory">
+                    Personal
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filterCategory" id="globalCategory"  value="global" >
+                    <label class="form-check-label" for="globalCategory">
+                    Global
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filterCategory" id="leaderCategory"  value="leader">
+                    <label class="form-check-label" for="leaderCategory">
+                    Leader
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="filterCategory" id="otherEngineerCategory"  value="otherEngineer">
+                    <label class="form-check-label" for="otherEngineerCategory">
+                    Other Engineer
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div><b>SORT BY:</b></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortByCategory" id="userNameSorting" value="userName" checked>
+                    <label class="form-check-label" for="userNameSorting">
+                    User name
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortByCategory" id="endDateSorting"  value="endDate">
+                    <label class="form-check-label" for="endDateSorting">
+                    End Date 
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary filterButton marginRight" >FILTER</button>
+            <button type="button" class="btn btn-primary filterButton" [disabled]="!filterClicked" (click)="resetFilter($event,form)">RESET</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <div class="alignCenter marginTop">
+        <p> <b>All Tasks </b></p>
+        <table border="2" class="table">
+            <tr class="thead-dark">
+                <th scope="col">Sr.No</th>
+                <th scope="col">Completed</th>
+                <th scope="col">Task</th>
+                <th scope="col">Creator</th>
+            </tr>
+            <tr *ngFor="let task of taskList; let i = index">
+                <td>{{i+1}}</td>
+                <td><input type="checkbox" id="taskComplete_{{i}}" [checked]="task.isCompleted" (change)="changeCompletedStatus(i)"></td>
+                <td>{{task.text}}</td>
+                <td>{{task.creator}}</td>
+            </tr>
+        </table>
+
+    </div>
+    </div>
+<div>
+        <div class="modal fade" id="addTaskModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Add Task</h4>
+                <button type="button" class="close" (click)="hideModal()">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                <app-add-task></app-add-task>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <!-- this button is hidden, used to close from typescript -->
+                <button type="button" id="close-modal" data-dismiss="modal" style="display: none">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
